@@ -5,8 +5,8 @@ from rest_framework import status
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework import generics, permissions, viewsets
 
-from .models import User, Profile
-from .serializers import (
+from apps.users.models import User, Profile
+from apps.users.serializers import (
     UserSerializer, ProfileSerializer, RegisterSerializer, LoginSerializer)
 
 
