@@ -6,9 +6,8 @@ from apps.users.models import User, Profile
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
     list_display = (
-            'username', 'full_name',
-            'date_registered', 'phone_number',
-            'email', 'is_admin', )
+            'username', 'full_name', 'date_registered',
+            'phone_number', 'email', 'is_admin', )
 
     search_fields = ('username',)
 
@@ -16,8 +15,7 @@ class UserAdmin(admin.ModelAdmin):
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
     list_display = (
-            'id', 'user', 'image',
-            'about', 'phone_number',
+            'id', 'user', 'image', 'about',
             'tg_username', 'job', 'coins', )
 
     search_fields = ('tg_username',)

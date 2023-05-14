@@ -58,18 +58,16 @@ class Profile(models.Model):
         User, on_delete=models.CASCADE, verbose_name='Пользователь')
     image = models.ImageField(
         upload_to='profiles/%Y/%m/%d/', verbose_name='Изображение')
-    about = models.TextField(verbose_name='Обо мне')
-    phone_number = models.CharField(
-        max_length=50, verbose_name='Номер телефона')
+    about = models.TextField(null=True, verbose_name='Обо мне')
     tg_username = models.CharField(
-        max_length=100, verbose_name='Никнейм в телеграм')
+        max_length=100, null=True, verbose_name='Никнейм в телеграм')
     job = models.ForeignKey(
-        Job, on_delete=models.CASCADE, related_name='profiles')
-    coins = models.IntegerField(verbose_name='Сноукоины')
+        Job, on_delete=models.CASCADE, null=True, related_name='profiles')
+    coins = models.IntegerField(null=True, verbose_name='Сноукоины')
 
     class Meta:
         verbose_name = 'Профиль'
         verbose_name_plural = 'Профили'
 
     def __str__(self):
-        return str(self.user)
+        return self.user.username
